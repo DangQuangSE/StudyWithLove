@@ -1,0 +1,28 @@
+# Node modules
+node_modules/
+
+# Output build (TypeScript -> JavaScript)
+dist/
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.test
+.env.production
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Cache
+*.tsbuildinfo
