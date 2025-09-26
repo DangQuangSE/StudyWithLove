@@ -1,0 +1,61 @@
+<div class="singup-container">
+  <form [formGroup]="signUpForm" (ngSubmit)="onsubmit()">
+    <h2>
+      Hello There, <br />
+      Welcome Back
+    </h2>
+    <div>
+      <input type="email" placeholder="Email Address" formGroupName="email" />
+      <div
+        class="error"
+        *ngIf="
+          signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched
+        "
+      >
+        Invalid Email, Please Input Again!
+      </div>
+      <div>
+        <input
+          type="password"
+          placeholder="Password"
+          formGroupName="password"
+        />
+        <div
+          class="error"
+          *ngIf="
+            signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched
+          "
+        >
+          Invalid Password, Please Input Again!
+        </div>
+      </div>
+      <div>
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          formGroupName="confirmPassword"
+        />
+        <div
+          class="error"
+          *ngIf="
+            signUpForm.get('confirmPassword')?.touched && !CheckMatchPassword
+          "
+        >
+          Password Do Not Match, Please Input Again!
+        </div>
+      </div>
+    </div>
+    <button type="submit" disabled="signUpForm.valid || loading">
+      {{ loading ? "Signing Up..." : "Sign Up" }}
+    </button>
+    <div class="hr-text">
+      <hr />
+      <span>Or Continue With</span>
+      <hr />
+    </div>
+    <div class="gg-fb">
+      <button type="">G</button>
+      <button type="">F</button>
+    </div>
+  </form>
+</div>

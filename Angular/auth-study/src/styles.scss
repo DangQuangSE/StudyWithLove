@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  background: #fb3ff2; /* Fallback color for unsupported browsers */
+  background: radial-gradient(
+    circle,
+    rgba(251, 63, 242, 1) 0%,
+    rgba(252, 70, 107, 1) 100%
+  );
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
