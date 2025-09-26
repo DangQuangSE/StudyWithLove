@@ -4,8 +4,9 @@ import { UserService } from '../user.service.js';
 
 @Component({
   selector: 'app-user-add',
-  templateUrl: './user-add-module.html',
-  styleUrls: ['./user-add-module.css'],
+  standalone: false,
+  templateUrl: './user-add.component.html',
+  styleUrls: ['./user-add.component.css'],
 })
 export class UserAddComponent {
   name: string = '';
