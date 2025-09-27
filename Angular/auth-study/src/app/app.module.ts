@@ -10,9 +10,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthComponent } from './auth/auth.component';
+import { TooltipComponent } from './tooltip/tooltip.component';
 
 @NgModule({
-  declarations: [AppComponent, AuthComponent],
+  declarations: [AppComponent, AuthComponent, TooltipComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

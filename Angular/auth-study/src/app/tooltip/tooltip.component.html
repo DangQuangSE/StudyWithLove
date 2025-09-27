@@ -1,0 +1,10 @@
+<div class="tooltip-box">
+  <ul>
+    <li
+      *ngFor="let rule of rules"
+      [ngStyle]="{ color: rule.valid ? 'green' : 'red' }"
+    >
+      {{ rule.text }}
+    </li>
+  </ul>
+</div>

@@ -8,7 +8,6 @@
       Welcome Back
     </h2>
 
-    <!-- Email -->
     <div>
       <input type="email" placeholder="Email Address" formControlName="email" />
       <div
@@ -19,12 +18,14 @@
       </div>
     </div>
 
-    <!-- Password -->
-    <div>
+    <div style="position: relative">
       <input
         type="password"
         placeholder="Password"
         formControlName="password"
+        (focus)="showPasswordTooltip = true"
+        (blur)="showPasswordTooltip = true"
+        (input)="validatePassword()"
       />
       <div
         class="error"
@@ -34,9 +35,12 @@
       >
         Invalid Password, Please Input Again!
       </div>
+      <app-tooltip
+        *ngIf="showPasswordTooltip"
+        [rules]="passwordRules"
+      ></app-tooltip>
     </div>
 
-    <!-- Confirm Password chỉ hiển thị nếu signup -->
     <div *ngIf="mode === 'signup'">
       <input
         type="password"
