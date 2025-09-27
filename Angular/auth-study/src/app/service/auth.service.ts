@@ -14,6 +14,6 @@ export class AuthService {
   }
   singIn(email: string, password: string) {
     const body = { email, password };
-    return this.http.post(`${this.apiUrl}/singin`, body);
+    return this.http.post(`${this.apiUrl}/login`, body);
   }
 }

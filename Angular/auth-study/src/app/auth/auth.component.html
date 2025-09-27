@@ -1,0 +1,87 @@
+<div class="singup-container">
+  <div class="circle top"></div>
+  <div class="circle bottom"></div>
+
+  <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+    <h2>
+      Hello There, <br />
+      Welcome Back
+    </h2>
+
+    <!-- Email -->
+    <div>
+      <input type="email" placeholder="Email Address" formControlName="email" />
+      <div
+        class="error"
+        *ngIf="authForm.get('email')?.invalid && authForm.get('email')?.touched"
+      >
+        Invalid Email, Please Input Again!
+      </div>
+    </div>
+
+    <!-- Password -->
+    <div>
+      <input
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+      />
+      <div
+        class="error"
+        *ngIf="
+          authForm.get('password')?.invalid && authForm.get('password')?.touched
+        "
+      >
+        Invalid Password, Please Input Again!
+      </div>
+    </div>
+
+    <!-- Confirm Password chỉ hiển thị nếu signup -->
+    <div *ngIf="mode === 'signup'">
+      <input
+        type="password"
+        placeholder="Confirm Password"
+        formControlName="confirmPassword"
+      />
+      <div
+        class="error"
+        *ngIf="authForm.get('confirmPassword')?.touched && !CheckMatchPassword"
+      >
+        Password Do Not Match, Please Input Again!
+      </div>
+    </div>
+    <div class="forgot-pw" *ngIf="mode === 'login'">Forgot Password ?</div>
+    <button type="submit" [disabled]="authForm.invalid || loading">
+      {{
+        loading
+          ? mode === "signup"
+            ? "Signing Up..."
+            : "Logging In..."
+          : mode === "signup"
+          ? "Sign Up"
+          : "Login"
+      }}
+    </button>
+
+    <div class="hr-text">
+      <hr />
+      <span style="font-size: 10px">Or Continue With</span>
+      <hr />
+    </div>
+
+    <div class="gg-fb">
+      <button type="button">G</button>
+      <button type="button">f</button>
+    </div>
+    <div class="redirec-signup">
+      <span *ngIf="mode === 'signup'">
+        Have an account?
+        <a routerLink="/login">Sign In</a>
+      </span>
+      <span *ngIf="mode === 'login'">
+        Don't have an account?
+        <a routerLink="/signup">Sign Up</a>
+      </span>
+    </div>
+  </form>
+</div>
