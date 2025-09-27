@@ -18,6 +18,7 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full',
   },
+  { path: '**', redirectTo: 'login' },
 ];
 
 @NgModule({
@@ -25,3 +26,4 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
+console.log('App routes:', routes);

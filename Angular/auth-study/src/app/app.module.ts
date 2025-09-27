@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthComponent } from './auth/auth.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, AuthComponent, TooltipComponent],
@@ -21,6 +22,7 @@ import { TooltipComponent } from './tooltip/tooltip.component';
     ReactiveFormsModule,
     CommonModule,
     ToastrModule.forRoot(),
+    HttpClientModule,
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],

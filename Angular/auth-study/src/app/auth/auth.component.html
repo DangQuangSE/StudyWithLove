@@ -24,8 +24,8 @@
         placeholder="Password"
         formControlName="password"
         (focus)="showPasswordTooltip = true"
-        (blur)="showPasswordTooltip = true"
-        (input)="validatePassword()"
+        (blur)="showPasswordTooltip = false"
+        (input)="logEvent($event)"
       />
       <div
         class="error"
