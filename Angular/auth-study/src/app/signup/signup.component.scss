@@ -1,40 +1,135 @@
 .singup-container {
   text-align: center;
-  height: 60vh;
   width: auto;
   background: #ffffff;
   margin: auto;
   padding: 50px 20px 50px 0;
   border-radius: 20px;
   display: flex;
+  justify-content: center;
   flex-direction: column;
-
+  overflow: hidden;
+  position: relative;
   form {
-    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 1;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.8)
+    );
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-radius: inherit;
-    flex-grow: 1;
     box-shadow: -1px 2px 6px 0px rgba(0, 0, 0, 0.3);
-    padding: 20px;
+    padding: 0 20px;
+    justify-content: center;
+    flex-direction: column;
   }
   h2 {
+    font-family: sans-serif;
+    font-weight: 600;
     color: #3c3c3c;
     text-align: left;
+    margin: 10px 10px 5px 5px;
   }
+  input {
+    text-align: left;
+    width: 90%;
+    height: 34px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f3f3f3;
+
+    font-size: 14px;
+    margin: 5px 0;
+    padding-left: 10px;
+  }
+
+  button[type="submit"] {
+    height: 34px;
+    width: 95%;
+    border-radius: 8px;
+    background: linear-gradient(to right, #6a11cb, #d6452f);
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+}
+.circle {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 25% 96%,
+    #6a11cb 0%,
+    #c445a9 40%,
+    #ff8c42 80%,
+    #ffb347 100%
+  );
+  z-index: 0;
+}
+.circle.top {
+  top: 10px;
+  right: 10px;
+}
+.circle.bottom {
+  bottom: 10px;
+  left: 10px;
+}
+.forgot-pw {
+  text-align: right;
+  font-size: 10px;
+  margin-right: 6px;
+  color: #868686;
 }
 .hr-text {
   display: flex;
   text-align: center;
   align-items: center;
-  margin: 20px 5px;
-}
-.hr-text hr {
-  flex-grow: 1;
-  border-top: 1px solid #ccc;
-}
-.hr-text span {
-  color: #333;
+  margin: 0 5px;
+  hr {
+    flex-grow: 1;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+  }
+  span {
+    color: #868686;
+  }
 }
 .gg-fb {
   display: flex;
   justify-content: center;
+  gap: 18px;
+  margin-bottom: 10px;
+  button {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 90px;
+    height: 34px;
+    border-radius: 7px;
+    font-size: 15px;
+    background: #f7f7f7;
+    box-shadow: 0 2px 6px rgba(143, 95, 232, 0.08);
+    cursor: pointer;
+    transition: background 0.2s;
+    color: #222;
+    font-weight: bold;
+  }
+}
+.redirec-signup {
+  font-size: 10px;
+  text-align: left;
+  margin-bottom: 10px;
+  a {
+    font-weight: bold;
+    text-decoration: none;
+  }
 }

@@ -1,4 +1,6 @@
 <div class="singup-container">
+  <div class="circle top"></div>
+  <div class="circle bottom"></div>
   <form [formGroup]="signUpForm" (ngSubmit)="onsubmit()">
     <h2>
       Hello There, <br />
@@ -45,17 +47,19 @@
         </div>
       </div>
     </div>
+    <div class="forgot-pw">Forgot Password ?</div>
     <button type="submit" disabled="signUpForm.valid || loading">
       {{ loading ? "Signing Up..." : "Sign Up" }}
     </button>
     <div class="hr-text">
       <hr />
-      <span>Or Continue With</span>
+      <span style="font-size: 10px">Or Continue With</span>
       <hr />
     </div>
     <div class="gg-fb">
       <button type="">G</button>
-      <button type="">F</button>
+      <button type="">f</button>
     </div>
+    <div class="redirec-signup">Don't have a account? <a>Sign Up</a></div>
   </form>
 </div>
