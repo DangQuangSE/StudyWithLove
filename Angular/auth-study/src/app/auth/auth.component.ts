@@ -105,13 +105,13 @@ export class AuthComponent {
     const { email, password } = this.authForm.value;
 
     if (this.mode === 'signup') {
-      this.authService.singUp(email, password).subscribe({
+      this.authService.signUp(email, password).subscribe({
         next: () => this.toast.success('Sign Up Successfully!'),
         error: () => this.toast.error('Sign Up Error!'),
         complete: () => (this.loading = false),
       });
     } else {
-      this.authService.singIn(email, password).subscribe({
+      this.authService.signIn(email, password).subscribe({
         next: () => this.toast.success('Login Successfully!'),
         error: () => this.toast.error('Login Error!'),
         complete: () => (this.loading = false),

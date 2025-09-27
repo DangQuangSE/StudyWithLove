@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { importProvidersFrom, NgModule } from '@angular/core';
 import {
   BrowserModule,
   provideClientHydration,
@@ -12,6 +12,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { AuthComponent } from './auth/auth.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
 import { HttpClientModule } from '@angular/common/http';
+import { environment } from '../environments/environment';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [AppComponent, AuthComponent, TooltipComponent],
@@ -24,7 +28,12 @@ import { HttpClientModule } from '@angular/common/http';
     ToastrModule.forRoot(),
     HttpClientModule,
   ],
-  providers: [provideClientHydration()],
+  providers: [
+    provideClientHydration(),
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

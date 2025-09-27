@@ -2,7 +2,7 @@
   <ul>
     <li
       *ngFor="let rule of rules"
-      [ngStyle]="{ color: rule.valid ? 'green' : 'red' }"
+      [ngStyle]="{ color: rule.valid ? 'green ' : 'red' }"
     >
       {{ rule.text }}
     </li>
