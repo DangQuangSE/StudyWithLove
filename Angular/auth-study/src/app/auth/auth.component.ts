@@ -92,9 +92,6 @@ export class AuthComponent {
     this.passwordRules[6].valid = !hasEmailSubstr;
     this.passwordRules[7].valid = !/(.)\1\1/.test(password);
   }
-  logEvent(e: any) {
-    console.log(e);
-  }
   onSubmit() {
     if (this.authForm.invalid || !this.CheckMatchPassword) {
       this.toast.error('Form is Invalid!');

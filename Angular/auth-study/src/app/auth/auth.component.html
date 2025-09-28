@@ -25,7 +25,7 @@
         formControlName="password"
         (focus)="showPasswordTooltip = true"
         (blur)="showPasswordTooltip = false"
-        (input)="logEvent($event)"
+        (input)="validatePassword()"
       />
       <div
         class="error"
