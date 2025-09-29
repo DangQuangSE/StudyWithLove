@@ -15,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
-import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+console.log(environment.firebaseConfig);
 
 @NgModule({
   declarations: [AppComponent, AuthComponent, TooltipComponent],
@@ -32,7 +32,6 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
     provideClientHydration(),
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore()),
   ],
   bootstrap: [AppComponent],
 })

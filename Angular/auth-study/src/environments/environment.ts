@@ -1,4 +1,3 @@
-console.log('environmenthere');
 export const environment = {
   production: false,
   firebaseConfig: {
