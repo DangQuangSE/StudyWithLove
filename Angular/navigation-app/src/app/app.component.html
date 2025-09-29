@@ -1,17 +1,20 @@
 <div class="container">
-  <nav class="navbar">
+  <nav class="navbar" [class.collapsed]="!isExpanded">
     <div class="window-icon">
       <div class="dot red"></div>
       <div class="dot green"></div>
       <div class="dot yellow"></div>
     </div>
     <div class="header">
-      <div class="toggle-btn"><i class="fa-solid fa-chevron-left"></i></div>
+      <button class="toggle-btn" (click)="toggleSidebar()">
+        <i class="fa-solid fa-chevron-left" *ngIf="isExpanded"></i>
+        <i class="fa-solid fa-chevron-right" *ngIf="!isExpanded"></i>
+      </button>
       <div class="infor">
         <div class="avatar">
           <img src="https://i.pravatar.cc/40" alt="User Avatar" />
         </div>
-        <div class="hello-name">
+        <div class="hello-name" *ngIf="isExpanded">
           Good Day👋<br />
           <strong>Name</strong>
         </div>
@@ -19,63 +22,73 @@
     </div>
     <hr />
     <div class="menu">
-      <div class="menu-header">Menu: 6</div>
+      <div class="menu-header">
+        Menu: <strong style="color: black">6</strong>
+      </div>
       <ul class="menu-item">
         <li routerLinkActive="active" routerLink="/dashboard">
           <i class="fa-solid fa-table-columns"></i>
-          <span>DashBoard</span>
-          <i class="fa-solid fa-filter option-icon"></i>
+          <span *ngIf="isExpanded">DashBoard</span>
+          <i class="fa-solid fa-filter option-icon" *ngIf="isExpanded"></i>
         </li>
         <li routerLinkActive="active">
           <i class="fa-solid fa-folder"></i>
-          <span>My Project taks</span>
+          <span *ngIf="isExpanded">My Project taks</span>
         </li>
         <li routerLinkActive="active">
           <i class="fa-solid fa-calendar-days"></i>
-          <span>Calendar</span>
-          <i class="fa-solid fa-plus option-icon"></i>
+          <span *ngIf="isExpanded">Calendar</span>
+          <i class="fa-solid fa-plus option-icon" *ngIf="isExpanded"></i>
         </li>
         <li routerLinkActive="active">
           <i class="fa-solid fa-envelope"></i>
-          <span>Mail</span>
-          <div class="avatars">
-            <img src="https://i.pravatar.cc/20?u=1" alt="user" />
-            <img src="https://i.pravatar.cc/20?u=2" alt="user" />
+          <span *ngIf="isExpanded">Mail</span>
+          <div class="avt-badge">
+            <div class="avatars" *ngIf="isExpanded">
+              <img src="https://i.pravatar.cc/20?u=1" alt="user" />
+              <img src="https://i.pravatar.cc/20?u=2" alt="user" />
+            </div>
+            <span class="badge" *ngIf="isExpanded">4</span>
           </div>
-          <span class="badge">4</span>
         </li>
         <li routerLinkActive="active">
-          <i class="fa-solid fa-bell"></i> <span>Notification</span>
+          <i class="fa-solid fa-bell"></i>
+          <span *ngIf="isExpanded">Notification</span>
         </li>
         <li routerLinkActive="active">
-          <i class="fa-solid fa-cart-shopping"></i><span>Sales</span>
+          <i class="fa-solid fa-cart-shopping"></i
+          ><span *ngIf="isExpanded">Sales</span>
         </li>
       </ul>
     </div>
     <hr />
     <div class="services">
       <div class="menu-header">
-        Service: 3
+        Service: <strong style="color: black">3</strong>
         <i class="fa-solid fa-pen"></i>
       </div>
       <ul class="service-item">
         <li routerLinkActive="active">
-          <i class="fa-brands fa-jira"></i><span>Jira Software </span>
+          <i class="fa-brands fa-jira"></i
+          ><span *ngIf="isExpanded">Jira Software </span>
         </li>
         <li routerLinkActive="active">
-          <i class="fa-brands fa-slack"></i><span>Slack</span>
+          <i class="fa-brands fa-slack"></i
+          ><span *ngIf="isExpanded">Slack</span>
         </li>
         <li routerLinkActive="active">
-          <i class="fa-brands fa-intercom"></i><span>Intercom</span>
+          <i class="fa-brands fa-intercom"></i
+          ><span *ngIf="isExpanded">Intercom</span>
         </li>
         <li routerLinkActive="active">
-          <i class="fa-solid fa-plus"></i><span>Add new plugin</span>
+          <i class="fa-solid fa-plus"></i
+          ><span *ngIf="isExpanded">Add new plugin</span>
         </li>
       </ul>
     </div>
     <div class="setting">
       <div class="menu-header">
-        Setting: 6
+        Setting: <strong style="color: black">6</strong>
         <i class="fa-solid fa-pen"></i>
       </div>
       <ul class="setting-item">
@@ -84,19 +97,27 @@
         </li>
         <li routerLinkActive="active"><i class="fa-solid fa-sort"></i></li>
         <li routerLinkActive="active"><i class="fa-solid fa-user-tie"></i></li>
-        <li routerLinkActive="active"><i class="fa-solid fa-chart-pie"></i></li>
-        <li routerLinkActive="active">
+        <li routerLinkActive="active" *ngIf="isExpandIcon">
+          <i class="fa-solid fa-chart-pie"></i>
+        </li>
+        <li routerLinkActive="active" *ngIf="isExpandIcon">
           <i class="fa-solid fa-screwdriver-wrench"></i>
         </li>
-        <li routerLinkActive="active">
+        <li routerLinkActive="active" *ngIf="isExpandIcon">
           <i class="fa-solid fa-circle-question"></i>
         </li>
+        <button *ngIf="!isExpanded" (click)="toggleIcons()">
+          <i class="fa-solid fa-arrows-up-to-line" *ngIf="!isExpandIcon"></i
+          ><i class="fa-solid fa-arrows-down-to-line" *ngIf="isExpandIcon"></i>
+        </button>
       </ul>
     </div>
     <div class="create-task">
       <i class="fa-solid fa-plus"></i>
-      <span><strong>Create new task</strong> <br /></span>
-      <span class="use-link"> Or use <a href="#">Invite link</a></span>
+      <span *ngIf="isExpanded"><strong>Create new task</strong> <br /></span>
+      <span class="use-link" *ngIf="isExpanded">
+        Or use <a href="#">Invite link</a></span
+      >
     </div>
   </nav>
 </div>
