@@ -43,12 +43,12 @@
         <li routerLinkActive="active">
           <i class="fa-solid fa-envelope"></i>
           <span *ngIf="isExpanded">Mail</span>
-          <div class="avt-badge">
-            <div class="avatars" *ngIf="isExpanded">
+          <div class="avt-badge" *ngIf="isExpanded">
+            <div class="avatars">
               <img src="https://i.pravatar.cc/20?u=1" alt="user" />
               <img src="https://i.pravatar.cc/20?u=2" alt="user" />
             </div>
-            <span class="badge" *ngIf="isExpanded">4</span>
+            <span class="badge">4</span>
           </div>
         </li>
         <li routerLinkActive="active">
