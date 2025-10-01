@@ -1,4 +1,4 @@
-import { importProvidersFrom, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import {
   BrowserModule,
   provideClientHydration,
@@ -13,8 +13,13 @@ import { AuthComponent } from './auth/auth.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
-import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import {
+  provideFirebaseApp,
+  initializeApp,
+  FirebaseAppModule,
+} from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 console.log(environment.firebaseConfig);
 
 @NgModule({
@@ -22,14 +27,15 @@ console.log(environment.firebaseConfig);
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
     ToastrModule.forRoot(),
     HttpClientModule,
+    FirebaseAppModule,
   ],
   providers: [
-    provideClientHydration(),
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth()),
   ],
